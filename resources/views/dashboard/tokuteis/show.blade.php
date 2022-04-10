@@ -44,10 +44,6 @@
                     <td bgcolor="#FFFFFF">{{ $tokutei->delivery_time }}</td>
                 </tr>
                 <tr>
-                    <th bgcolor="#99ccff" width="120px">商品の引き渡し時期</th>
-                    <td bgcolor="#FFFFFF">{{ $tokutei->delivery_time }}</td>
-                </tr>
-                <tr>
                     <th bgcolor="#99ccff" width="120px">返品・不良品について</th>
                     <td bgcolor="#FFFFFF">{{ $tokutei->delivery_of_goods }}</td>
                 </tr>

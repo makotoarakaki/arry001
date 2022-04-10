@@ -49,12 +49,11 @@ class RegularEmail extends Command
         $task = MailStand::where('send_datetime','=', $now)->first();
         if (!is_null($task)) {
             // 全ユーザー取得
-            if ($task->send == 2) {
+            if ($task->send == 3) {
                 $users = SearchUser::where('mail_stand_id', '=', $task->id)->get();
             } else {
                 $users = User::all();
             }
-
             foreach($users as $user) {
                 Mail::send(new SendMail($user->email, $user->name, $task->title, $task->comment));
             }

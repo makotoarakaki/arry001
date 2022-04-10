@@ -97,13 +97,17 @@ class MailStandController extends Controller
             $sendmail->send = 2;
         }
 
+        $event_id = $request->input('event_id');
+        $ticket_names = $request->input('ticket_name');
+        if (!is_null($event_id)) {
+            $sendmail->send = 3;
+        }
+
         $sendmail->save(); // データ登録
 
         /**
          * 条件設定がある場合
          */
-        $event_id = $request->input('event_id');
-        $ticket_names = $request->input('ticket_name');
  
         if(!is_null($event_id)) {
             $users_id = SellingEvent::where('event_id', '=', $event_id)
@@ -215,7 +219,6 @@ class MailStandController extends Controller
      */
     public function destroy(MailStand $mailStand)
     {
-        dd($mailStand);
         $mailStand->delete();
 
         return redirect()->route('dashboard.mailstands.index');

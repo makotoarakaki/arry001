@@ -106,9 +106,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="d-flex justify-content-end">
-                <button type="submit" class="w-25 btn samazon-submit-button">条件設定</button>
-            </div>
         </form>
         @endif
 
