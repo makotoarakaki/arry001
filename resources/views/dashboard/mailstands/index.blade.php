@@ -58,7 +58,6 @@
                         <a href="/dashboard/mailstands/{{ $mail->id }}" onclick="event.preventDefault(); document.getElementById('logout-form{{ $mail->id }}').submit();" class="dashboard-delete-link">
                             削除
                         </a>
-
                         <form id="logout-form{{ $mail->id }}" action="/dashboard/mailstands/{{ $mail->id }}" method="POST" style="display: none;">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">

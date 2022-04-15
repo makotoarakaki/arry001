@@ -11,7 +11,6 @@ class MailStand extends Model
     use Favoriteable, Sortable;
 
     public $sortable = [
-        'title', 
         'updated_at'
     ];
 }

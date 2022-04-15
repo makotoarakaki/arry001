@@ -194,7 +194,7 @@ class MailStandController extends Controller
      * @param  \App\MailStand  $mailStand
      * @return \Illuminate\Http\Response
      */
-    public function edit(MailStand $mailStand)
+    public function edit(MailStand $mailstand)
     {
         //
     }
@@ -206,7 +206,7 @@ class MailStandController extends Controller
      * @param  \App\MailStand  $mailStand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MailStand $mailStand)
+    public function update(Request $request, MailStand $mailstand)
     {
         //
     }
@@ -217,9 +217,9 @@ class MailStandController extends Controller
      * @param  \App\MailStand  $mailStand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MailStand $mailStand)
-    {
-        $mailStand->delete();
+    public function destroy(MailStand $mailstand)
+    {      
+        $mailstand->delete();
 
         return redirect()->route('dashboard.mailstands.index');
     }

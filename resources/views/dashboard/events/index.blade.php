@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>イベント管理</h1>
-<form method="GET" action="{{ route('dashboard.products.index')}}" class="form-inline">
+<form method="GET" action="{{ route('dashboard.events.index')}}" class="form-inline">
     並び替え
     <select name="sort" onChange="this.form.submit();" class="form-inline ml-2">
         @foreach ($sort as $key => $value)
@@ -51,9 +51,13 @@
                 <tr>
                     <th scope="row">{{ $event->id }}</td>
                     @if ($event->image !== "")
-                        <img src="{{ asset('public/storage/events/'.$event->image) }}" class="w-80 img-fluid">
+                        <a href="/dashboard/events/{{ $event->id }}" class="dashboard-edit-link">
+                            <img src="{{ asset('public/storage/events/'.$event->image) }}" class="w-80 img-fluid">
+                        </a>
                     @else
-                        <img src="{{ asset('img/dummy.png')}}" class="w-80 img-fuild">
+                        <a href="/dashboard/events/{{ $event->id }}" class="dashboard-edit-link">
+                            <img src="{{ asset('img/dummy.png')}}" class="w-80 img-fuild">
+                        </a>
                     @endif
                     <td>{{ $event->title }}</td>
                     <td>{{ $event->event_date }}</td>
