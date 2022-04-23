@@ -80,14 +80,6 @@ class TicketController extends Controller
         $ticket->price = $request->input('price');
         $ticket->number_seats = $request->input('number_seats');
         $ticket->tax_flg = $request->input('tax_flg');
-        $pay_m = 0;
-        if ($request->input('pay_m1') == 'on') {
-            $pay_m++;
-        }
-        if ($request->input('pay_m2') == 'on') {
-            $pay_m++;
-        }
-        $ticket->pay_method = $pay_m;
 
         $event_id = $request->input('event_id');
         $ticket->event_id = $event_id;

@@ -16,8 +16,9 @@
 
     <hr>
 
-    <form method="POST" name="form1" action="/dashboard/tickets?event_id={{$ticket->event_id}}" class="mb-5" enctype="multipart/form-data">
+    <form method="POST" name="form1" action="/dashboard/tickets/{{ $ticket->id }}edit?event_id={{$ticket->event_id}}" class="mb-5" enctype="multipart/form-data">
         {{ csrf_field() }}
+        <input type="hidden" name="_method" value="PUT">
         <div class="form-inline mt-4 mb-4 row">
             <label for="ticket-name" class="col-2 d-flex justify-content-start">チケット名</label>
             <input type="text" name="name" id="ticket-name" class="form-control col-8" value="{{ $ticket->name }}">
@@ -47,18 +48,6 @@
                     <label for="ticket-tax_flg2">税別価格</label>
                 </li>
             </ul>
-        </div>
-        <div class="form-inline mt-4 mb-4 row">
-            <label for="event-period_from" class="col-2 d-flex justify-content-start">支払形式</label>
-            <div class="form-check">
-                <input type="checkbox" name="pay_m1" class="form-check-input" id="pay_m1" {{ $ticket->pay_method == 1 || $ticket->pay_method == 2 ? 'checked' : '' }}>
-                <label class="form-check-label" for="pay_m1">クレジット</label>
-            </div>
-            &nbsp;&nbsp;
-            <div class="form-check">
-                <input type="checkbox" name="pay_m2" class="form-check-input" id="pay_m2" {{ $ticket->pay_method == 2 ? 'checked' : '' }}>
-                <label class="form-check-label" for="pay_m2">銀行振込</label>
-            </div>
         </div>
         <input type="hidden" value="{{}}">
         <div class="d-flex justify-content-end">
