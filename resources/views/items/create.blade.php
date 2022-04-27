@@ -70,7 +70,7 @@
                         会場&nbsp;：&nbsp;{{$detail['venue']}}
                     </p>
                     <p>
-                        運営&nbsp;：&nbsp;{{$detail['administrator']}}
+                        講師&nbsp;：&nbsp;{{$detail['administrator']}}
                     </p>
                 </div>
                 <div class="mt-4 mb-4 row samazon-border-comment">
