@@ -194,6 +194,13 @@ class ItemController extends Controller
 
          $event = Event::find($event_id);
 
+//         $ticket = new Ticket();
+
+        $ticket = Ticket::where('name', $product_name)->first();
+        $ticket->number_sales = $ticket->number_sales + 1;
+
+        $ticket->update();
+ 
         // お客様への購入メール送信
         $purchase_mail = app()->make('App\Http\Controllers\PurchaseMailController');
         $purchase_mail->purchas($event, $product_name, $price, $pay_method, $selling->code);

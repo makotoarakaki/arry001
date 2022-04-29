@@ -79,17 +79,29 @@
                     <?php $cnt = 1; ?>
                     @foreach($tickets as $ticket)
                         @if ($cnt === 1)
-                        <li>
-                            <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->price }}" checked>
-                            <label for="ticket-name{{ $ticket->id }}">{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</label>
-                            <input type="hidden" name="name{{$ticket->price}}" value="{{ $ticket->name }}"> 
-                        </li>
+                            @if($ticket->number_seats <= $ticket->number_sales)
+                                <li>
+                                    <del>{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</del>&nbsp;<font class="font-red">完 売</font>
+                                </li>
+                            @else
+                                <li>
+                                    <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->price }}" checked>
+                                    <label for="ticket-name{{ $ticket->id }}">{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</label>
+                                    <input type="hidden" name="name{{$ticket->price}}" value="{{ $ticket->name }}"> 
+                                </li>
+                            @endif
                         @else
-                        <li>
-                            <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->price }}"> 
-                            <label for="ticket-name{{ $ticket->id }}">{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</label>
-                            <input type="hidden" name="name{{$ticket->price}}" value="{{ $ticket->name }}"> 
-                        </li>
+                            @if($ticket->number_seats <= $ticket->number_sales)
+                                <li>
+                                    <del>{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</del>&nbsp;<font class="font-red">完 売</font>
+                                </li>
+                            @else
+                                <li>
+                                    <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->price }}">
+                                    <label for="ticket-name{{ $ticket->id }}">{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</label>
+                                    <input type="hidden" name="name{{$ticket->price}}" value="{{ $ticket->name }}"> 
+                                </li>
+                            @endif
                         @endif
                         <?php $cnt++; ?>
                     @endforeach

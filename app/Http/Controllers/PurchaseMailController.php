@@ -22,10 +22,10 @@ class PurchaseMailController extends Controller
             $bank_info .= $code."\n";
             $bank_info .= "記入例：".$code."山田 太郎\n";
             $bank_info .= "お振込先：\n";
-            $bank_info .= "〇〇銀行\n";
-            $bank_info .= "〇〇支店\n";
-            $bank_info .= "普通：12345678\n";
-            $bank_info .= "株式会社NARU\n";
+            $bank_info .= "新生銀行\n";
+            $bank_info .= "本店 400\n";
+            $bank_info .= "普通：2602286\n";
+            $bank_info .= "新垣 誠\n";
         } else {
             $bank_info = "クレジット決済";
         }
