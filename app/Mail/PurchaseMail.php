@@ -16,11 +16,10 @@ class PurchaseMail extends Mailable
      *
      * @return void
      */
-    public function __construct($title, $subtitle, $comment, $event_date, $venue, $administrator, $product_name, $price, $bank_info)
+    public function __construct($title, $subtitle, $event_date, $venue, $administrator, $product_name, $price, $bank_info)
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
-        $this->comment = $comment;
         $this->event_date = $event_date;
         $this->venue = $venue;
         $this->administrator = $administrator;
@@ -49,7 +48,6 @@ class PurchaseMail extends Mailable
                             'name' => $name, 
                             'title' => $this->title, 
                             'subtitle' => $this->subtitle, 
-                            'comment' => $this->comment, 
                             'event_date' => $this->event_date, 
                             'venue' => $this->venue, 
                             'administrator' => $this->administrator, 
