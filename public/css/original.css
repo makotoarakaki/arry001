@@ -229,3 +229,7 @@
 .font-red{
   color: red;
 }
+
+.right {
+  margin: 0 0 0 auto;
+}

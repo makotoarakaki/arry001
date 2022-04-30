@@ -20,6 +20,7 @@ class CreateSellingEventsTable extends Migration
             $table->string('ticket_name')->default("");
             $table->integer('user_id');
             $table->integer('event_id');
+            $table->integer('pay_method')->default(0);
             $table->timestamps();
         });
     }

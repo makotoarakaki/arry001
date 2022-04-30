@@ -88,9 +88,6 @@ class EventController extends Controller
         $event->event_time_to = $request->input('event_time_to');
         $event->venue = $request->input('venue');
         $event->administrator = $request->input('administrator');
-        // $event->ntc_email1 = $request->input('ntc_email1');
-        // $event->ntc_email2 = $request->input('ntc_email2');
-        // $event->ntc_email3 = $request->input('ntc_email3');
         $pay_m = 0;
         if ($request->input('pay_m1') == 'on') {
             $pay_m = 1;
@@ -107,9 +104,6 @@ class EventController extends Controller
 
         $event_new = Event::orderBy('created_at', 'desc')->first();
         $event_id = $event_new->id;
-
-        // $ticket = app()->make('App\Http\Controllers\Dashboard\TicketController');
-        // $ticket->index($event_id);
  
         return redirect()->route('dashboard.tickets.index', compact('event_id'));
     }
@@ -230,9 +224,6 @@ class EventController extends Controller
             $pay_m = 3;
         }
         $event->pay_method = $pay_m;
-        // $event->ntc_email1 = $request->input('ntc_email1');
-        // $event->ntc_email2 = $request->input('ntc_email2');
-        // $event->ntc_email3 = $request->input('ntc_email3');
 
         $event->update();
  

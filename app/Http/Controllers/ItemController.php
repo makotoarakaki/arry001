@@ -166,9 +166,10 @@ class ItemController extends Controller
         $selling->user_id = $user->id;
         $selling->event_id = $request->input('event_id');
 
-        $selling->save();
-
         $pay_method = $request->input('pay_method'); // 支払い方法
+        $selling->pay_method = $pay_method;
+
+        $selling->save();
 
         if($pay_method === '1') {
             $pay_jp_secret = env('PAYJP_SECRET_KEY');
@@ -187,14 +188,13 @@ class ItemController extends Controller
         }
 
  
-         // データを取得
-         $event_id = $request->input('event_id');
-         $product_name = $request->input('product_name');
-         $price = $request->input('price');
+        // データを取得
+        $event_id = $request->input('event_id');
+        $product_name = $request->input('product_name');
+        $price = $request->input('price');
 
-         $event = Event::find($event_id);
+        $event = Event::find($event_id);
 
-//         $ticket = new Ticket();
 
         $ticket = Ticket::where('name', $product_name)->first();
         $ticket->number_sales = $ticket->number_sales + 1;

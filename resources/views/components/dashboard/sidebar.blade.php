@@ -26,6 +26,9 @@
         <label class="samazon-sidebar-category-label">
             <a href="/dashboard/events">イベント一覧</a>
         </label>
+        <label class="samazon-sidebar-category-label">
+            <a href="/dashboard/sellingevents">イベント売上</a>
+        </label>
     </div>
     <h2>メール管理</h2>
     <div class="d-flex flex-column">
