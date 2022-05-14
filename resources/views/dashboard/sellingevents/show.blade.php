@@ -12,6 +12,7 @@
                     <th scope="col">年月日</th>
                     <th scope="col">お名前</th>
                     <th scope="col">メールアドレス</th>
+                    <th scope="col">チケット</th>
                     <th scope="col">支払方法</th>
                     <th scope="col">金額</th>
                 </tr>
@@ -23,8 +24,9 @@
                     <td>{{ $selling['event_date'] }}</td>
                     <td>{{ $selling['user_name'] }}</td>
                     <td>{{ $selling['email'] }}</td>
+                    <td>{{ $selling['ticket_name'] }}</td>
                     <td>{{ $selling['pay_method'] }}</td>
-                    <td>{{ $selling['price'] }}</td>
+                    <td>{{ number_format($selling['price']) }}</td>
                 </tr>
                 @endforeach
                 <tr>

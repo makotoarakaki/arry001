@@ -80,6 +80,7 @@ class SellingEventController extends Controller
                     'event_date' => $date,
                     'user_name' => $user_name,
                     'email' => $email,
+                    'ticket_name' => $values->ticket_name,
                     'pay_method' => $pay_method,
                     'price' => $values->price
                 ];
