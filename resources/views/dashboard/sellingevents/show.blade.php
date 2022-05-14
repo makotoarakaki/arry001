@@ -35,7 +35,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="right"><b>{{ $total }}</b></td>
+                    <td class="right"><b>{{ number_format($total) }}</b></td>
                 </tr>
             </tbody>
         </table>
