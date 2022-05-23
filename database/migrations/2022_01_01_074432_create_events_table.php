@@ -20,8 +20,8 @@ class CreateEventsTable extends Migration
             $table->string('image')->default('');
             $table->integer('category_id')->unsigned();
             $table->date('event_date')->nullable(); // 開催日
-            $table->time('event_time_from'); // 開催時間開始
-            $table->time('event_time_to');// 開催時間終了
+            $table->time('event_time_from')->nullable(); // 開催時間開始
+            $table->time('event_time_to')->nullable();// 開催時間終了
             $table->text('venue');// 会場
             $table->string('administrator');// 運営者
             $table->integer('pay_method')->default(0);  // 0:なし 1:クレジット 2:銀行振込 4:両方
