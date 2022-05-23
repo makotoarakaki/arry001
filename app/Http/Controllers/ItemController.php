@@ -59,11 +59,14 @@ class ItemController extends Controller
      */
     public function input(Request $request)
     {
+        $ticket  = $request->input('ticket');
+        // id切り出し
+        $ticket_id = strstr($ticket, '&', true);
+ 
+        $price = substr(strstr($ticket, '&'), 1); // 商品料金
         $event_id = $request->input('event_id'); // 開催日
-        $price = $request->input('ticket'); // 商品料金
-        $product_name = $request->input('name'.$price); // 商品名
+        $product_name = $request->input('name'.$ticket_id); // 商品名
         $pay_method = $request->input('pay_method'); // 支払い方法
-
         if(Auth::user()) {  
             return redirect()->route('items.confirm', compact('event_id', 'product_name', 'price', 'pay_method'));
         }

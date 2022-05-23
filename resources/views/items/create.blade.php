@@ -85,9 +85,9 @@
                                 </li>
                             @else
                                 <li>
-                                    <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->price }}" checked>
+                                    <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->id }}&{{ $ticket->price }}" checked>
                                     <label for="ticket-name{{ $ticket->id }}">{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</label>
-                                    <input type="hidden" name="name{{$ticket->price}}" value="{{ $ticket->name }}"> 
+                                    <input type="hidden" name="name{{$ticket->id}}" value="{{ $ticket->name }}"> 
                                 </li>
                             @endif
                         @else
@@ -97,9 +97,9 @@
                                 </li>
                             @else
                                 <li>
-                                    <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->price }}">
+                                    <input type="radio" name="ticket" id="ticket-name{{ $ticket->id }}" value="{{ $ticket->id }}&{{ $ticket->price }}">
                                     <label for="ticket-name{{ $ticket->id }}">{{ $ticket->name }}&nbsp;{{ number_format($ticket->price) }}円（税込）</label>
-                                    <input type="hidden" name="name{{$ticket->price}}" value="{{ $ticket->name }}"> 
+                                    <input type="hidden" name="name{{$ticket->id}}" value="{{ $ticket->name }}"> 
                                 </li>
                             @endif
                         @endif
@@ -108,6 +108,7 @@
                     </ul>
                 </div>  
                 <input type="hidden" name="event_id" value="{{ $event->id }}"> 
+                <input type="hidden" name="ticket_id2" id="ticket_id2" value=""> 
 
                 <div class="mt-4 mb-4 row samazon-border-comment">
                     <label for="radios" class="col-md-5 col-form-label text-md-left">お支払い方法<span class="ml-1 samazon-label-label"></label>
@@ -145,5 +146,4 @@
         </div>
     </div>
 </div>
-
 @endsection
