@@ -60,6 +60,9 @@
             <input type="text" name="required_fee" id="tokutei-required_fee" class="form-control col-8" value="{{ $tokutei->required_fee }}">
         </div>
         <div class="form-inline mt-4 mb-4 row">
+            <label for="tokutei-payment" class="col-12 d-flex">都度課金</label>
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
             <label for="tokutei-payment_method" class="col-2 d-flex justify-content-start align-self-start">お支払い方法</label>
             <textarea name="payment_method" id="tokutei-payment_method" class="form-control col-8" rows="3">{{ $tokutei->payment_method }}</textarea>
         </div>
@@ -74,6 +77,25 @@
         <div class="form-inline mt-4 mb-4 row">
             <label for="tokutei-cancel" class="col-2 d-flex justify-content-start align-self-start">返品・交換不良品・解約について</label>
             <textarea name="cancel" id="tokutei-cancel" class="form-control col-8" rows="3">{{ $tokutei->cancel }}</textarea>
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="recurring-tokutei-payment" class="col-12 d-flex">定期課金</label>
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="recurring_method" class="col-2 d-flex justify-content-start align-self-start">お支払い方法</label>
+            <textarea name="recurring_method" id="recurring_method" class="form-control col-8" rows="3">{{ $tokutei->recurring_method }}</textarea>
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="recurring_time_credit" class="col-2 d-flex justify-content-start">代金の支払い時期：クレジット </label>
+            <input type="text" name="recurring_time_credit" id="recurring_time_credit" class="form-control col-8" value="{{ $tokutei->recurring_time_credit }}">
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="recurring_time_bank_transfer" class="col-2 d-flex justify-content-start">代金の支払い時期：銀行振込 </label>
+            <input type="text" name="recurring_time_bank_transfer" id="recurring_time_bank_transfer" class="form-control col-8" value="{{ $tokutei->recurring_time_bank_transfer }}">
+        </div>
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="recurring_midterm_cancel" class="col-2 d-flex justify-content-start align-self-start">返品・交換不良品・解約について</label>
+            <textarea name="recurring_midterm_cancel" id="recurring_midterm_cancel" class="form-control col-8" rows="3">{{ $tokutei->recurring_midterm_cancel }}</textarea>
         </div>
        <div class="d-flex justify-content-end">
             <button type="submit" class="w-25 btn samazon-submit-button">更新</button>

@@ -60,7 +60,6 @@ class TokuteiController extends Controller
      */
     public function edit($id)
     {
- //   dd($id);
         $tokutei = Tokutei::find($id);
 
         return view('dashboard.tokuteis.edit', compact('tokutei'));
@@ -105,6 +104,10 @@ class TokuteiController extends Controller
         $tokutei->payment_time_credit = $request->input('payment_time_credit');
         $tokutei->payment_time_bank_transfer = $request->input('payment_time_bank_transfer');
         $tokutei->cancel = $request->input('cancel');
+        $tokutei->recurring_method = $request->input('recurring_method');
+        $tokutei->recurring_time_credit = $request->input('recurring_time_credit');
+        $tokutei->recurring_time_bank_transfer = $request->input('recurring_time_bank_transfer');
+        $tokutei->recurring_midterm_cancel = $request->input('recurring_midterm_cancel');
 
         $tokutei->update();
 

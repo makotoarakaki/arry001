@@ -16,8 +16,12 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $sort_query = [];
+        $sort_query = ["updated_at" => "desc"];
         $sorted = "";
+        $sort = [
+            '新しい順' => 'updated_at desc',
+            '古い順' => 'updated_at asc'
+        ];
 
         if ($request->sort !== null) {
             $slices = explode(' ', $request->sort);
@@ -34,11 +38,6 @@ class EventController extends Controller
             $total_count = Event::count();
             $events = Event::sortable($sort_query)->paginate(15);
         }
-
-        $sort = [
-            '古い順' => 'updated_at asc',
-            '新しい順' => 'updated_at desc'
-        ];
 
         return view('dashboard.events.index', compact('events', 'sort', 'sorted', 'total_count', 'keyword'));
     }
@@ -242,5 +241,46 @@ class EventController extends Controller
 
         return redirect()->route('dashboard.events.index');
 
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function thankyou_email(Request $request, Event $event)
+    {
+        $event = Event::find($request->input('event_id'));
+ //       $event->id = $request->input('event_id');
+
+        return view('dashboard.events.thankyou_email', compact('event'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function compose_email(Request $request)
+    {
+        $request->validate([
+            'mail_title' => 'required',
+            'mail_content' => 'required',
+        ],
+        [
+            'mail_title.required' => '件名は必須です。',
+            'mail_content.required' => '本文は必須です。',
+        ]);
+
+        $event = Event::find($request->input('id'));
+        $event->mail_title = $request->input('mail_title');
+        $event->mail_content = $request->input('mail_content');
+
+        $event->update();
+ 
+        return redirect()->route('dashboard.events.index');
     }
 }

@@ -2,7 +2,11 @@
     <a class="navbar-brand mx-auto" href="{{ url('/') }}">        
         {{ config('app.name', 'Laravel') }}
     </a>
-    <label class="navbar-brand mx-auto">
+    <label>
+            <a href="{{ route('privacy') }}">プライバシーポリシー</a>
+    </label>
+    <label>&nbsp|&nbsp</label>
+    <label>
             <a href="{{ route('tokuteis.tokutei', ['id' => 1]) }}">特定商取引法</a>
     </label>
 </nav>

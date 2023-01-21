@@ -12,7 +12,13 @@ class PurchaseMailController extends Controller
 
         // データベースより値を取得
         $this->title = $event->title;
-        $subtitle = 'この度は、『'.$this->title.'にお申し込みいただきありがとうございます。』';
+        if(empty($event->mail_title)) {
+            $subtitle = 'この度は、『'.$this->title.'』にお申し込みいただきありがとうございます。';
+        } else {
+            $subtitle = $event->mail_title;
+        }
+
+        $content = $event->mail_content;
 
         $bank_info = "";
         if ($pay_method === '2') {
@@ -63,6 +69,7 @@ class PurchaseMailController extends Controller
 
         Mail::send(new PurchaseMail($this->title, 
                                     $subtitle, 
+                                    $content,
                                     $this->event_date, 
                                     $this->venue, 
                                     $this->administrator,

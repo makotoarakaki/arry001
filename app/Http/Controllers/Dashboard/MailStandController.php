@@ -21,8 +21,12 @@ class MailStandController extends Controller
      */
     public function index(Request $request)
     {
-        $sort_query = [];
+        $sort_query = ["updated_at" => "desc"];
         $sorted = "";
+        $sort = [
+            '新しい順' => 'updated_at desc',
+            '古い順' => 'updated_at asc'
+        ];
 
         if ($request->sort !== null) {
             $slices = explode(' ', $request->sort);
@@ -40,11 +44,6 @@ class MailStandController extends Controller
             $total_count = MailStand::count();
             $mails = MailStand::sortable($sort_query)->paginate(15);
         }
-
-        $sort = [
-            '古い順' => 'updated_at asc',
-            '新しい順' => 'updated_at desc'
-        ];
 
         return view('dashboard.mailstands.index', compact('mails', 'sort', 'sorted', 'total_count', 'keyword'));
     }

@@ -55,8 +55,10 @@
                         <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail">
                     @endif
                 </div>
+               
                 <div class="form-inline mt-4 mb-4 row samazon-border-comment">
-                    {!! nl2br(htmlspecialchars($event->comment)) !!}
+                    {!! nl2br($event->comment) !!}
+                    {{--{!! nl2br(htmlspecialchars($event->comment)) !!}--}}
                 </div>
                 <div class="mt-4 mb-4 row samazon-border-comment">
                     <p>

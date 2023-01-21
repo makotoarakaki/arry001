@@ -47,19 +47,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth:admins');
 
-//Route::resource('item', 'ItemController');
 Route::get('items/create/{id}', 'ItemController@create');
 Route::post('items/input', 'ItemController@input');
 Route::post('/items', 'ItemController@store')->name('items.store');
-//Route::post('items/confirm', 'ItemController@confirm')->name('items.confirm');
 Route::get('items/confirm', 'ItemController@confirm')->name('items.confirm');
 Route::post('items/token', 'ItemController@token');
 Route::post('items/store', 'ItemController@store');
-// Route::get('items/completion', function () {
-//      return view('items.completion');
-// });
 
-//Route::get('/tickets/{id}', 'Api\TicketController@index');
 
 Route::get('tokuteis/{id}/tokutei', 'Dashboard\TokuteiController@show')->name('tokuteis.tokutei');;
 
@@ -75,14 +69,15 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
      Route::get('products/import/csv', 'Dashboard\ProductController@import')->name('products.import_csv')->middleware('auth:admins');
      Route::post('products/import/csv', 'Dashboard\ProductController@import_csv')->middleware('auth:admins');
      Route::resource('events', 'Dashboard\EventController')->middleware('auth:admins');
+     Route::get('events/{id}/thankyou_email', 'Dashboard\EventController@thankyou_email')->middleware('auth:admins');
+     Route::post('events/{id}/compose_email', 'Dashboard\EventController@compose_email')->middleware('auth:admins');
      Route::resource('tickets', 'Dashboard\TicketController')->middleware('auth:admins');
      Route::get('mailstands/condition', 'Dashboard\MailStandController@condition')->name('mailstands.condition')->middleware('auth:admins');
      Route::post('mailstands/create', 'Dashboard\MailStandController@create')->middleware('auth:admins');
      Route::resource('mailstands', 'Dashboard\MailStandController')->middleware('auth:admins');
      Route::resource('tokuteis', 'Dashboard\TokuteiController')->middleware('auth:admins');
      Route::resource('sellingevents', 'Dashboard\SellingEventController')->middleware('auth:admins');
-     // Route::get('tokuteis/{id}/edit', 'Dashboard\TokuteiController@edit')->middleware('auth:admins');
-     // Route::post('tokuteis/{id}', 'Dashboard\TokuteiController@show')->middleware('auth:admins');
+     Route::resource('contracts', 'Dashboard\ContractController')->middleware('auth:admins');
 });
 
 Route::get('/tasks', function () {
@@ -92,3 +87,5 @@ Route::get('/tasks', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/privacy', 'PrivacyController@index')->name('privacy');

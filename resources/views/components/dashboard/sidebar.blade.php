@@ -36,6 +36,12 @@
             <a href="/dashboard/mailstands">メール一覧</a>
         </label>
     </div>
+    <h2>フォーム管理</h2>
+    <div class="d-flex flex-column">
+        <label class="samazon-sidebar-category-label">
+            <a href="/dashboard/contracts">契約署</a>
+        </label>
+    </div>
 
     <h2>その他</h2>
     <div class="d-flex flex-column">

@@ -440,3 +440,9 @@ img {
 .h1-coler {
   color: #0fbe9f;
 }
+
+/* 契約書ヘッダー */
+.contracts-headline {
+  background-color: #dcdcdc;
+  height: 30px;
+}

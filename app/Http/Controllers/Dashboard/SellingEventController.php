@@ -18,8 +18,12 @@ class SellingEventController extends Controller
      */
     public function index(Request $request)
     {
-        $sort_query = [];
+        $sort_query = ["updated_at" => "desc"];
         $sorted = "";
+        $sort = [
+            '新しい順' => 'updated_at desc',
+            '古い順' => 'updated_at asc'
+        ];
 
         if ($request->sort !== null) {
             $slices = explode(' ', $request->sort);
@@ -36,11 +40,6 @@ class SellingEventController extends Controller
             $total_count = Event::count();
             $events = Event::sortable($sort_query)->paginate(15);
         }
-
-        $sort = [
-            '古い順' => 'updated_at asc',
-            '新しい順' => 'updated_at desc'
-        ];
 
         return view('dashboard.sellingevents.index', compact('events', 'sort', 'sorted', 'total_count', 'keyword'));
     }

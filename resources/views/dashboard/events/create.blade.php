@@ -24,7 +24,8 @@
         </div>
         <div class="form-inline mt-4 mb-4 row">
             <label for="event-description" class="col-2 d-flex justify-content-start align-self-start">イベント説明</label>
-            <textarea name="comment" id="event-description" class="form-control col-8" rows="10"></textarea>
+            <!-- <textarea name="comment" id="event-description" class="form-control col-8" rows="10"></textarea> -->
+            <div><input type="hidden" value="" id="event-description" class="form-control col-8" name="comment"><trix-editor input="event-description"></trix-editor></div>
         </div>
         <div class="form-inline mt-4 mb-4 row">
             <label for="event-image" class="col-2 d-flex justify-content-start">画像</label>

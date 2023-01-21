@@ -12,12 +12,16 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
     <script src="https://kit.fontawesome.com/3723f06c66.js" crossorigin="anonymous"></script>
+    <!-- trix -->
+    <script src="{{ asset('js/trix.js') }}" ></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <!-- trix -->
+    <link href="{{ asset('css/trix.css')}}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/original.css')}}" rel="stylesheet">
     <!-- multiselect CSS -->

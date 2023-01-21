@@ -39,8 +39,8 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">イベント名</th>
                     <th scope="col">画像</th>
+                    <th scope="col">イベント名</th>
                     <th scope="col">開催日</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -49,7 +49,8 @@
             <tbody>
                 @foreach($events as $event)
                 <tr>
-                    <th scope="row">{{ $event->id }}</td>
+                    <th scope="row">{{ $event->id }}</th>
+                    <td>
                     @if ($event->image !== "")
                         <a href="/dashboard/events/{{ $event->id }}" class="dashboard-edit-link">
                             <img src="{{ asset('public/storage/events/'.$event->image) }}" class="w-80 img-fluid">
@@ -59,8 +60,12 @@
                             <img src="{{ asset('img/dummy.png')}}" class="w-80 img-fuild">
                         </a>
                     @endif
+                    </td>
                     <td>{{ $event->title }}</td>
                     <td>{{ $event->event_date }}</td>
+                    <td>
+                        <a href="/dashboard/events/{{ $event->id }}/thankyou_email?event_id={{ $event->id }}" class="btn samazon-submit-button">サンキュー<br />メール</a>
+                    </td>
                     <td>
                         <a href="/dashboard/events/{{ $event->id }}/edit" class="dashboard-edit-link">編集</a>
                     </td>

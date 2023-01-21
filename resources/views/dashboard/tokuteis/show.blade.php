@@ -60,6 +60,9 @@
                     <td bgcolor="#FFFFFF">{{ $tokutei->required_fee }}</td>
                 </tr>
                 <tr>
+                    <th bgcolor="#99ccff" width="120px" colspan="2" ><p align="center">都度課金</p></th>
+                </tr>
+                <tr>
                     <th bgcolor="#99ccff" width="120px">お支払い方法</th>
                     <td bgcolor="#FFFFFF">{{ $tokutei->payment_method }}</td>
                 </tr>
@@ -74,6 +77,25 @@
                 <tr>
                     <th bgcolor="#99ccff" width="120px">返品・交換不良品・解約について</th>
                     <td bgcolor="#FFFFFF">{{ $tokutei->cancel }}</td>
+                </tr>
+                <tr>
+                    <th bgcolor="#99ccff" width="120px" colspan="2" ><p align="center">定期課金</p></th>
+                </tr>
+                <tr>
+                    <th bgcolor="#99ccff" width="120px">お支払い方法</th>
+                    <td bgcolor="#FFFFFF">{{ $tokutei->recurring_method }}</td>
+                </tr>
+                <tr>
+                    <th bgcolor="#99ccff" width="120px">代金の支払い時期：クレジット</th>
+                    <td bgcolor="#FFFFFF">{{ $tokutei->recurring_time_credit }}</td>
+                </tr>
+                <tr>
+                    <th bgcolor="#99ccff" width="120px">代金の支払い時期：銀行振込</th>
+                    <td bgcolor="#FFFFFF">{{ $tokutei->recurring_time_bank_transfer }}</td>
+                </tr>
+                <tr>
+                    <th bgcolor="#99ccff" width="120px">返品・交換不良品・解約について</th>
+                    <td bgcolor="#FFFFFF">{{ $tokutei->recurring_midterm_cancel }}</td>
                 </tr>
             </tbody>
         </table>
